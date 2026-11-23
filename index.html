@@ -8,6 +8,8 @@
 <meta property="og:title" content="Tope · Un tope antes del impulso">
 <meta property="og:description" content="La app en español que te detiene 60 segundos antes de caer. Únete a la lista de espera.">
 <meta name="theme-color" content="#0f1424">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -25,8 +27,9 @@
 
   header { padding: 20px 0; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
-  .mark { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(160deg, #2a3560, #161c31); border: 1px solid var(--line); display: grid; place-items: center; }
-  .mark i { width: 12px; height: 12px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 14px rgba(240,180,94,0.7); }
+  .wm { font-weight: 800; font-size: 26px; letter-spacing: -1px; }
+  .wm b, .wmf b { color: var(--amber); }
+  .screen .topi { width: 92px; height: 78px; }
 
   .hero { display: grid; gap: 40px; padding: 28px 20px 56px; align-items: center; }
   @media (min-width: 860px) { .hero { grid-template-columns: 1.1fr 0.9fr; padding: 48px 20px 80px; } }
@@ -80,7 +83,7 @@
 </style>
 </head>
 <body>
-<header class="wrap"><div class="brand"><span class="mark"><i></i></span>Tope</div></header>
+<header class="wrap"><div class="brand"><svg viewBox="0 0 1024 1024" width="34" height="34" style="border-radius:9px;display:block" aria-hidden="true"><rect width="1024" height="1024" fill="#141a33"/><path d="M150 760 C 236 760, 290 330, 512 330 C 734 330, 788 760, 874 760 Z" fill="#f0b45e"/><rect x="448" y="500" width="44" height="124" rx="22" fill="#1d1a2e"/><rect x="532" y="500" width="44" height="124" rx="22" fill="#1d1a2e"/></svg><span class="wm">tope<b>.</b></span></div></header>
 
 <main>
   <div class="wrap hero">
@@ -99,6 +102,14 @@
     <div aria-hidden="true">
       <div class="phone"><div class="screen">
         <span class="appname">Abriste X · 1:07 a.m.</span>
+        <svg class="topi" viewBox="0 0 240 200" aria-hidden="true"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7c574"/><stop offset="1" stop-color="#e9a64c"/></linearGradient></defs>
+<ellipse cx="82" cy="194" rx="16" ry="9" fill="#d98f36"/><ellipse cx="158" cy="194" rx="16" ry="9" fill="#d98f36"/>
+<path d="M22 192 C 38 192, 50 66, 120 66 C 190 66, 202 192, 218 192 Z" fill="url(#tg)"/>
+<path d="M62 118 C 72 90, 92 80, 112 78" fill="none" stroke="#fde3b0" stroke-width="9" stroke-linecap="round" opacity="0.8"/>
+<rect x="96" y="112" width="13" height="34" rx="6.5" fill="#1d1a2e"/><rect x="131" y="112" width="13" height="34" rx="6.5" fill="#1d1a2e"/>
+<path d="M90 104 L 112 110 M 150 104 L 128 110" stroke="#1d1a2e" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="120" cy="162" rx="6" ry="7" fill="#7a3b2e"/>
+<ellipse cx="80" cy="152" rx="11" ry="6" fill="#e2735e" opacity="0.45"/><ellipse cx="160" cy="152" rx="11" ry="6" fill="#e2735e" opacity="0.45"/></svg>
         <div class="ring"><b>60</b></div>
         <div class="q">¿Por qué la abres ahora?</div>
         <div class="s">Respira 60 segundos. Si todavía quieres entrar, tendrás 5 minutos.</div>
@@ -151,7 +162,7 @@
   </div></section>
 </main>
 
-<footer><div class="wrap">© 2026 Tope · Hecho en México</div></footer>
+<footer><div class="wrap"><span class="wmf" style="font-weight:800;color:var(--ink)">tope<b>.</b></span> · Un tope antes del impulso · Hecho en México · © 2026</div></footer>
 
 <script>
   // Sign-ups go to the tope_waitlist table (insert-only for visitors; the publishable key is safe to show).
