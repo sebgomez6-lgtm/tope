@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tope · Un tope antes del impulso</title>
+<meta name="description" content="Tope te detiene justo cuando vas a abrir X, Reddit o Instagram sin pensar, sobre todo de noche. Únete a la lista de espera.">
+<meta property="og:title" content="Tope · Un tope antes del impulso">
+<meta property="og:description" content="La app en español que te detiene 60 segundos antes de caer. Únete a la lista de espera.">
+<meta name="theme-color" content="#0f1424">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1424; --bg-2: #161c31; --card: #1b2340; --line: rgba(232,226,212,0.12);
+    --ink: #ece6d8; --sub: #a7aec2; --amber: #f0b45e; --amber-ink: #241a08;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: "DM Sans", system-ui, sans-serif; line-height: 1.55; }
+  a { color: var(--amber); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  h1, h2 { font-family: "Fraunces", Georgia, serif; font-weight: 700; letter-spacing: -0.01em; line-height: 1.08; }
+
+  header { padding: 20px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+  .mark { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(160deg, #2a3560, #161c31); border: 1px solid var(--line); display: grid; place-items: center; }
+  .mark i { width: 12px; height: 12px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 14px rgba(240,180,94,0.7); }
+
+  .hero { display: grid; gap: 40px; padding: 28px 20px 56px; align-items: center; }
+  @media (min-width: 860px) { .hero { grid-template-columns: 1.1fr 0.9fr; padding: 48px 20px 80px; } }
+  .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; color: var(--amber); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; }
+  h1 { font-size: clamp(38px, 8vw, 60px); }
+  h1 em { font-style: normal; color: var(--amber); }
+  .lead { margin-top: 18px; font-size: 18px; color: var(--sub); max-width: 520px; }
+
+  form { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; max-width: 480px; }
+  input[type=email] { flex: 1 1 220px; min-width: 0; font: inherit; font-size: 16px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg-2); color: var(--ink); }
+  input[type=email]::placeholder { color: #7d859c; }
+  button { font: inherit; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 14px; border: 0; background: var(--amber); color: var(--amber-ink); cursor: pointer; }
+  button:disabled { opacity: 0.6; cursor: default; }
+  .fine { margin-top: 10px; font-size: 13px; color: #7d859c; }
+  .ok { margin-top: 16px; padding: 14px 16px; border-radius: 14px; background: rgba(240,180,94,0.12); border: 1px solid rgba(240,180,94,0.35); display: none; }
+  .err { margin-top: 12px; color: #ff9f8f; font-size: 14px; display: none; }
+
+  /* phone mockup of the "shield" screen */
+  .phone { width: min(300px, 78vw); aspect-ratio: 9 / 19; margin: 0 auto; border-radius: 44px; padding: 12px; background: #05070d; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  .screen { height: 100%; border-radius: 34px; background: radial-gradient(ellipse 120% 70% at 50% 0%, #26305a 0%, #141a2e 60%, #0d1120 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px 22px; gap: 14px; }
+  .ring { width: 108px; height: 108px; border-radius: 50%; border: 3px solid rgba(240,180,94,0.25); display: grid; place-items: center; position: relative; }
+  .ring::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 3px solid transparent; border-top-color: var(--amber); border-right-color: var(--amber); animation: spin 6s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .ring::after { animation: none; } }
+  .ring b { font-family: "Fraunces", serif; font-size: 34px; color: var(--amber); }
+  .screen .q { font-family: "Fraunces", serif; font-size: 22px; line-height: 1.15; }
+  .screen .s { font-size: 13px; color: var(--sub); }
+  .pill { width: 100%; padding: 11px; border-radius: 12px; font-size: 14px; font-weight: 700; }
+  .pill.a { background: var(--amber); color: var(--amber-ink); }
+  .pill.b { background: rgba(236,230,216,0.08); color: var(--ink); }
+  .appname { font-size: 12px; color: #7d859c; }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(28px, 5.5vw, 40px); margin-bottom: 14px; }
+  .intro { color: var(--sub); max-width: 620px; font-size: 17px; }
+  .grid { display: grid; gap: 14px; margin-top: 28px; }
+  @media (min-width: 760px) { .grid.three { grid-template-columns: repeat(3, 1fr); } .grid.two { grid-template-columns: repeat(2, 1fr); } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+  .card .n { font-family: "Fraunces", serif; color: var(--amber); font-size: 26px; }
+  .card h3 { font-size: 17px; margin: 6px 0 6px; }
+  .card p { color: var(--sub); font-size: 15px; }
+
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+  details + details { margin-top: 10px; }
+  summary { font-weight: 700; cursor: pointer; }
+  details p { color: var(--sub); margin-top: 8px; font-size: 15px; }
+
+  .final { text-align: center; }
+  .final form { margin-left: auto; margin-right: auto; }
+  footer { padding: 32px 0 44px; color: #7d859c; font-size: 13px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<header class="wrap"><div class="brand"><span class="mark"><i></i></span>Tope</div></header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">Un tope antes del impulso · Próximamente para iPhone</span>
+      <h1>Frena el impulso <em>antes</em> de abrir la app.</h1>
+      <p class="lead">Bloquear páginas no basta: el contenido +18 también está en X, Reddit e Instagram. Tope te detiene justo cuando vas a abrirlas sin pensar, sobre todo de noche.</p>
+      <form class="wl" novalidate>
+        <input type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required aria-label="Tu correo">
+        <button type="submit">Quiero probarla</button>
+      </form>
+      <p class="fine">Te avisamos cuando esté lista. Sin spam, y puedes salirte cuando quieras.</p>
+      <div class="ok" role="status">¡Listo! Estás en la lista. Te escribimos en cuanto puedas probarla.</div>
+      <p class="err" role="alert"></p>
+    </div>
+    <div aria-hidden="true">
+      <div class="phone"><div class="screen">
+        <span class="appname">Abriste X · 1:07 a.m.</span>
+        <div class="ring"><b>60</b></div>
+        <div class="q">¿Por qué la abres ahora?</div>
+        <div class="s">Respira 60 segundos. Si todavía quieres entrar, tendrás 5 minutos.</div>
+        <div class="pill a">Respirar primero</div>
+        <div class="pill b">Mejor la cierro</div>
+      </div></div>
+    </div>
+  </div>
+
+  <section><div class="wrap">
+    <h2>Así funciona</h2>
+    <p class="intro">El impulso es más fuerte en los primeros segundos. Tope pone una pausa justo ahí.</p>
+    <div class="grid three">
+      <div class="card"><div class="n">1</div><h3>Eliges las apps que te hacen caer</h3><p>X, Reddit, Instagram, TikTok o el navegador. Y bloquea las páginas para adultos.</p></div>
+      <div class="card"><div class="n">2</div><h3>Al abrirlas, te detiene</h3><p>Una pausa de 60 segundos: respirar, una pregunta rápida, algo para cambiar de enfoque.</p></div>
+      <div class="card"><div class="n">3</div><h3>Desbloquear cuesta trabajo</h3><p>Cada vez un poco más. Y de noche, más difícil todavía.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <h2>Hecha distinta</h2>
+    <div class="grid two">
+      <div class="card"><h3>🌙 Modo noche</h3><p>De 11 p.m. a 6 a.m., cuando más cuesta, las pausas son más largas.</p></div>
+      <div class="card"><h3>📈 Tu progreso no se borra</h3><p>Cuenta cada impulso que resististe. Un mal día no te regresa a cero.</p></div>
+      <div class="card"><h3>💬 En español, de verdad</h3><p>Pensada desde México, no traducida a la carrera.</p></div>
+      <div class="card"><h3>🤝 Pruébala primero</h3><p>Sin cuestionarios eternos antes del muro de pago. Precio claro y justo desde el inicio.</p></div>
+      <div class="card"><h3>🔒 Privada y discreta</h3><p>Un nombre e ícono que no dicen nada. Lo que pasa en tu celular se queda en tu celular.</p></div>
+      <div class="card"><h3>🙅 Sin sermones</h3><p>Ni culpa ni vergüenza. Solo una herramienta que te ayuda en el momento difícil.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <h2>Preguntas</h2>
+    <details><summary>¿Cuándo sale?</summary><p>Estamos construyéndola. Las personas en la lista de espera la prueban primero.</p></details>
+    <details><summary>¿Funciona en Android?</summary><p>Empezamos con iPhone. Si estás en Android, únete igual y dinos: así sabemos cuántos la esperan.</p></details>
+    <details><summary>¿Puede filtrar contenido dentro de X o Reddit?</summary><p>Ninguna app puede hacerlo en iPhone: Apple no lo permite. Por eso Tope te frena antes de abrir esas apps, que es donde sí se puede.</p></details>
+    <details><summary>¿Es una app religiosa?</summary><p>No. Es para cualquier persona que quiera recuperar el control, crea en lo que crea.</p></details>
+    <details><summary>¿Reemplaza a un profesional?</summary><p>No. Si sientes que no puedes controlarlo o te causa mucho malestar, hablar con un profesional de salud mental puede ayudarte mucho. Tope es una herramienta para el día a día.</p></details>
+  </div></section>
+
+  <section class="final"><div class="wrap">
+    <h2>Sé de los primeros en probarla</h2>
+    <p class="intro" style="margin: 0 auto;">Gratis para la lista de espera durante la prueba.</p>
+    <form class="wl" novalidate>
+      <input type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required aria-label="Tu correo">
+      <button type="submit">Unirme</button>
+    </form>
+    <div class="ok" role="status">¡Listo! Estás en la lista.</div>
+    <p class="err" role="alert"></p>
+  </div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Tope · Hecho en México</div></footer>
+
+<script>
+  // Sign-ups go to the tope_waitlist table (insert-only for visitors; the publishable key is safe to show).
+  const WAITLIST = { url: "https://olorknijxdcmndrujebi.supabase.co/rest/v1/tope_waitlist", key: "sb_publishable_Odq8qwn_HpcK6sFxjTZZXw_8_lvhOKK" };
+  // Where the visitor came from (e.g. ?src=tiktok-v3), so we can see which video worked.
+  const src = (new URLSearchParams(location.search).get("src") || document.referrer || "directo").slice(0, 80);
+
+  document.querySelectorAll("form.wl").forEach((form) => {
+    const box = form.parentElement;
+    const ok = box.querySelector(".ok"), err = box.querySelector(".err"), btn = form.querySelector("button");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      err.style.display = "none";
+      const email = form.email.value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = "Revisa tu correo, parece incompleto."; err.style.display = "block"; return; }
+      btn.disabled = true;
+      try {
+        if (WAITLIST.url) {
+          const r = await fetch(WAITLIST.url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", apikey: WAITLIST.key, Prefer: "return=minimal" },
+            body: JSON.stringify({ email, source: src }),
+          });
+          // 409 = already on the list: treat as success
+          if (!r.ok && r.status !== 409) throw new Error(r.status);
+        }
+        form.style.display = "none";
+        ok.style.display = "block";
+      } catch (_) {
+        err.textContent = "Algo falló. Intenta de nuevo en un momento.";
+        err.style.display = "block";
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
+</body>
+</html>
